@@ -46,4 +46,34 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+    implementation libs.androidx.recyclerview
+
+    //  网络请求
+    //    https://github.com/liangjingkanji/Net
+    implementation libs.net
+    implementation libs.okhttp3.okhttp
+    // 协程基础库
+    implementation libs.kotlinx.coroutines.core
+    implementation libs.kotlinx.coroutines.android
+    // 通知栏监听网络日志
+    //    https://github.com/ChuckerTeam/chucker
+    implementation libs.chucker
+    // 图片加载
+    //    https://github.com/bumptech/glide
+    implementation libs.glide
+
+    // recyclerView 框架
+    implementation libs.brv
+
+    // json解析
+    implementation libs.kotlinx.serialization.json
+    implementation libs.kotlinx.serialization.protobuf
+
+    // banner
+    //    https://github.com/youth5201314/banner
+    implementation libs.banner
+
+    // 事件传递
+    //    https://github.com/greenrobot/EventBus
+    implementation libs.eventbus
 }
