@@ -1,17 +1,16 @@
 package com.oceanknight.wanandroid.ui.activity
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.oceanknight.wanandroid.R
+import com.oceanknight.wanandroid.base.BaseActivity
 import com.oceanknight.wanandroid.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+    override fun initView() {
 
-    private lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
     }
+
+    override fun initData() {
+
+    }
+
 }
