@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--    中国色 我还挺喜欢这些颜色的,就用原名了-->
+<!--    https://www.zhongguose.com/-->
+    <color name="muyunhui">#4f383e</color>
 </resources>
