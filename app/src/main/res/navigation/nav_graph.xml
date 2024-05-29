@@ -2,6 +2,32 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.oceanknight.wanandroid.ui.fragment.main.HomeFragment"
+        android:label="首页"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.oceanknight.wanandroid.ui.fragment.main.SearchFragment"
+        android:label="搜索"
+        tools:layout="@layout/fragment_search"/>
+
+    <fragment
+        android:id="@+id/collectionsFragment"
+        android:name="com.oceanknight.wanandroid.ui.fragment.main.CollectionsFragment"
+        android:label="收藏"
+        tools:layout="@layout/fragment_collections"/>
+
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.oceanknight.wanandroid.ui.fragment.main.MineFragment"
+        android:label="我的"
+        tools:layout="@layout/fragment_mine"/>
+
 
 </navigation>
