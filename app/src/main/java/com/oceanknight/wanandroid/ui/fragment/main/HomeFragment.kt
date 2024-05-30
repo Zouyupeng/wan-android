@@ -12,7 +12,6 @@ import com.oceanknight.wanandroid.databinding.FragmentHomeBinding
  */
 class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initView() {
-
     }
 
     override fun initData() {
