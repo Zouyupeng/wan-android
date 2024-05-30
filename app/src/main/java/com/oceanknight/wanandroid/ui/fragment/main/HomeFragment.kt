@@ -6,13 +6,12 @@ import com.oceanknight.wanandroid.databinding.FragmentHomeBinding
 
 /**
  *
- * author: zouyupeng
+ * author: Oceanknight
  * date: 2024/05/29
  * describe:
  */
 class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initView() {
-
     }
 
     override fun initData() {

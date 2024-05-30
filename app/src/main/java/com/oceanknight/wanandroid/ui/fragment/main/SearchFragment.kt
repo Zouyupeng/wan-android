@@ -7,7 +7,7 @@ import com.oceanknight.wanandroid.databinding.FragmentSearchBinding
 
 /**
  *
- * author: zouyupeng
+ * author: Oceanknight
  * date: 2024/05/29
  * describe:
  */
