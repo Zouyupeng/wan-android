@@ -1,6 +1,7 @@
 package com.oceanknight.wanandroid.base
 
 import android.app.Application
+import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.drake.net.NetConfig
@@ -16,6 +17,24 @@ import java.util.concurrent.TimeUnit
 
 @HiltAndroidApp
 class App: Application() {
+
+    init {
+        instance = this
+    }
+
+    companion object {
+        private var instance: App? = null
+
+        /**
+         * 获取app Context
+         * 虽然有hilt, 但是一些object内还是需要用这种方法来获得App的Context
+         *
+         * @return
+         */
+        fun appContext(): Context {
+            return instance!!.applicationContext
+        }
+    }
 
     override fun onCreate() {
         super.onCreate()

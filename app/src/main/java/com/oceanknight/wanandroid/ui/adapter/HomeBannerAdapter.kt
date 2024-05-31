@@ -1,10 +1,12 @@
 package com.oceanknight.wanandroid.ui.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.oceanknight.wanandroid.databinding.ComponentBannerItemBinding
 import com.oceanknight.wanandroid.net.model.HomeBanner
 import com.youth.banner.adapter.BannerAdapter
 
@@ -17,13 +19,11 @@ import com.youth.banner.adapter.BannerAdapter
  */
 class HomeBannerAdapter(data: MutableList<HomeBanner>? = null) : BannerAdapter<HomeBanner, HomeBannerAdapter.BannerViewHolder>(data){
 
-    class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class BannerViewHolder(val binding: ComponentBannerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
-        val img = ImageView(parent.context)
-        img.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        img.scaleType = ImageView.ScaleType.CENTER_CROP
-        return BannerViewHolder(img)
+        val binding = ComponentBannerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return BannerViewHolder(binding)
     }
 
     override fun onBindView(
@@ -32,9 +32,6 @@ class HomeBannerAdapter(data: MutableList<HomeBanner>? = null) : BannerAdapter<H
         position: Int,
         size: Int
     ) {
-        val imgView = holder.itemView as ImageView
-        Glide.with(imgView)
-            .load(data.imagePath)
-            .into(imgView)
+        holder.binding.m = data
     }
 }
