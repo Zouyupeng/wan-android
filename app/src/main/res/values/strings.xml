@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Wan Android</string>
     <string name="action_settings">Settings</string>
+
+    <string name="top">首页</string>
+    <string name="square">广场</string>
+    <string name="project">项目</string>
+    <string name="wx_article">公众号</string>
+    
 </resources>
