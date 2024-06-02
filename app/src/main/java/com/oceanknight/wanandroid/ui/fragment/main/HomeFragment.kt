@@ -10,8 +10,11 @@ import com.oceanknight.wanandroid.constants.Api
 import com.oceanknight.wanandroid.databinding.FragmentHomeBinding
 import com.oceanknight.wanandroid.net.model.HomeBanner
 import com.oceanknight.wanandroid.ui.adapter.HomeBannerAdapter
+import com.oceanknight.wanandroid.ui.fragment.home.HarmonyFragment
+import com.oceanknight.wanandroid.ui.fragment.home.ProjectFragment
 import com.oceanknight.wanandroid.ui.fragment.home.SquareFragment
 import com.oceanknight.wanandroid.ui.fragment.home.TopFragment
+import com.oceanknight.wanandroid.ui.fragment.home.WxArticleFragment
 import com.oceanknight.wanandroid.utils.ext.FragmentAdapter
 import com.youth.banner.indicator.RoundLinesIndicator
 
@@ -32,14 +35,18 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             .setIntercept(false)
 
         // tabLayout + viewPager2
-        binding.vp.adapter = FragmentAdapter(listOf(TopFragment(), SquareFragment()))
+        binding.vp.adapter = FragmentAdapter(listOf(TopFragment(), SquareFragment(), ProjectFragment(),
+            WxArticleFragment(), HarmonyFragment()))
         TabLayoutMediator(binding.tabTop, binding.vp) { tab, position ->
             when(position) {
                 0 -> tab.text = getString(R.string.top)
                 1 -> tab.text = getString(R.string.square)
                 2 -> tab.text = getString(R.string.project)
                 3 -> tab.text = getString(R.string.wx_article)
+                4 -> tab.text = getString(R.string.harmony)
             }
+            // 去除长按气泡
+            tab.view.tooltipText = ""
         }.attach()
     }
 
