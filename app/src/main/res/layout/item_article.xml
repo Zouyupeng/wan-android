@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/bg_article_card">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/source_img"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_margin="@dimen/dp_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher_round"/>
+
+            <TextView
+                android:id="@+id/author_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                app:layout_constraintTop_toTopOf="@id/source_img"
+                app:layout_constraintBottom_toBottomOf="@id/source_img"
+                app:layout_constraintStart_toEndOf="@id/source_img"
+                tools:text="作者"/>
+
+            <TextView
+                android:id="@+id/time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                app:layout_constraintTop_toTopOf="@id/source_img"
+                app:layout_constraintBottom_toBottomOf="@id/source_img"
+                app:layout_constraintStart_toEndOf="@id/author_tv"
+                tools:text="2天前"/>
+
+            <ImageView
+                android:id="@+id/collect_img"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_20"
+                app:layout_constraintTop_toTopOf="@id/source_img"
+                app:layout_constraintBottom_toBottomOf="@id/source_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:src="@drawable/ic_collection_line"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintTop_toBottomOf="@id/content_info_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="文章标题文章标题文章标题"/>
+
+<!--        TODO: tag区,等做好tag指向的那些页面再回来做这个-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -11,6 +11,9 @@ import com.oceanknight.wanandroid.BuildConfig
 import com.oceanknight.wanandroid.constants.Api
 import com.oceanknight.wanandroid.net.convert.SerializationConverter
 import com.oceanknight.wanandroid.net.interceptor.SuffixInterceptor
+import com.scwang.smart.refresh.footer.ClassicsFooter
+import com.scwang.smart.refresh.header.MaterialHeader
+import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.Cache
 import java.util.concurrent.TimeUnit
@@ -71,5 +74,9 @@ class App: Application() {
             // 数据转换器
             setConverter(SerializationConverter())
         }
+
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, _ -> MaterialHeader(context) }
+        SmartRefreshLayout.setDefaultRefreshFooterCreator { context, _ -> ClassicsFooter(context) }
+
     }
 }
