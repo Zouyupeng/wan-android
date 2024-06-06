@@ -4,9 +4,11 @@ import android.app.Application
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.drake.brv.utils.BRV
 import com.drake.net.NetConfig
 import com.drake.net.okhttp.setConverter
 import com.drake.net.okhttp.setDebug
+import com.oceanknight.wanandroid.BR
 import com.oceanknight.wanandroid.BuildConfig
 import com.oceanknight.wanandroid.constants.Api
 import com.oceanknight.wanandroid.net.convert.SerializationConverter
@@ -41,6 +43,8 @@ class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        BRV.modelId = BR.m
 
         // 初始化网络通信
         NetConfig.initialize(Api.HOST, this) {

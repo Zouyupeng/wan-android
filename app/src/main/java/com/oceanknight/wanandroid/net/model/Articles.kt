@@ -1,4 +1,7 @@
 package com.oceanknight.wanandroid.net.model
+import androidx.annotation.DrawableRes
+import com.oceanknight.wanandroid.R
+import com.oceanknight.wanandroid.base.App
 import kotlinx.serialization.Serializable
 
 import kotlinx.serialization.SerialName
@@ -6,17 +9,17 @@ import kotlinx.serialization.SerialName
 
 /**
  *
- * author: zouyupeng
+ * author: Oceanknight
  * date: 2024/06/05
  * describe:
  * 删除了一些字段不做解析
  */
 @Serializable
-data class Article(
+data class Articles(
     @SerialName("curPage")
     var curPage: Int = 0,
     @SerialName("datas")
-    var data: List<Data> = listOf(),
+    var articleList: List<Article> = listOf(),
 
     /** 是否还有后续 */
     @SerialName("over")
@@ -27,7 +30,7 @@ data class Article(
     var pageCount: Int = 0,
 ) {
     @Serializable
-    data class Data(
+    data class Article(
         @SerialName("author")
         var author: String = "",
 
@@ -85,5 +88,20 @@ data class Article(
             @SerialName("url")
             var url: String = ""
         )
+
+        fun getAuthorOrSharer(): String {
+            if (author.isNotEmpty()) return App.appContext().getString(R.string.author) + author
+            return App.appContext().getString(R.string.sharer) + shareUser
+        }
+
+        @DrawableRes
+        fun getArticleSource(): Int {
+            return when {
+                link.contains("mp.weixin.qq") -> R.drawable.ic_wx
+                link.contains("juejin.cn") -> R.drawable.ic_juejin
+                link.contains("wanandroid.com") -> R.drawable.ic_wan_android
+                else -> R.drawable.ic_net
+            }
+        }
     }
 }

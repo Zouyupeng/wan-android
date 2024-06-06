@@ -1,6 +1,5 @@
 package com.oceanknight.wanandroid.utils.databinding
 
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -8,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.oceanknight.wanandroid.base.App
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 /**
  *
@@ -38,5 +36,17 @@ object GlideDataBindingComponent {
             )
         }
         requestBuilder.into(v)
+    }
+
+    /**
+     * 加载圆形图片
+     * @param url 图片来源
+     * @param holder 占位图
+     */
+    @BindingAdapter(value = ["imgCircle", "holder"], requireAll = false)
+    @JvmStatic
+    fun loadImageCircle(v: ImageView, url: Any?, holder: Drawable?) {
+        if (url == null && holder == null) v.setImageDrawable(null)
+        Glide.with(v.context).load(url).circleCrop().placeholder(holder).into(v)
     }
 }

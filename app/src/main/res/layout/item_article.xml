@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="m"
+            type="com.oceanknight.wanandroid.net.model.Articles.Article" />
 
     </data>
 
@@ -11,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
         android:background="@drawable/bg_article_card">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,15 +30,19 @@
                 android:layout_width="@dimen/dp_30"
                 android:layout_height="@dimen/dp_30"
                 android:layout_margin="@dimen/dp_10"
+                android:padding="@dimen/dp_5"
+                android:background="@drawable/sp_ic_line_round_bg"
+                imgCircle="@{m.getArticleSource()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@mipmap/ic_launcher_round"/>
+                tools:src="@drawable/ic_net"/>
 
             <TextView
                 android:id="@+id/author_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_10"
+                android:text="@{m.getAuthorOrSharer()}"
                 app:layout_constraintTop_toTopOf="@id/source_img"
                 app:layout_constraintBottom_toBottomOf="@id/source_img"
                 app:layout_constraintStart_toEndOf="@id/source_img"
@@ -45,16 +53,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_10"
+                android:text="@{m.niceDate}"
                 app:layout_constraintTop_toTopOf="@id/source_img"
                 app:layout_constraintBottom_toBottomOf="@id/source_img"
                 app:layout_constraintStart_toEndOf="@id/author_tv"
                 tools:text="2天前"/>
 
+<!--            TODO: 分享功能等封装好了MMKV以后再做-->
             <ImageView
                 android:id="@+id/collect_img"
                 android:layout_width="@dimen/dp_30"
                 android:layout_height="@dimen/dp_30"
                 android:layout_marginEnd="@dimen/dp_20"
+                android:src="@drawable/ic_collection_line"
                 app:layout_constraintTop_toTopOf="@id/source_img"
                 app:layout_constraintBottom_toBottomOf="@id/source_img"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -65,8 +76,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp_10"
-            android:textSize="@dimen/sp_20"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:textSize="@dimen/sp_16"
+            android:text="@{m.title}"
             app:layout_constraintTop_toBottomOf="@id/content_info_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

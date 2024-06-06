@@ -7,5 +7,7 @@
     <string name="project">项目</string>
     <string name="wx_article">公众号</string>
     <string name="harmony">鸿蒙</string>
-    
+
+    <string name="author">作者 ·&#160;</string>
+    <string name="sharer">分享者 ·&#160;</string>
 </resources>
