@@ -17,16 +17,16 @@ import androidx.fragment.app.Fragment
 abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int = 0) :
     Fragment(contentLayoutId) {
 
+    private var _binding: B? = null
     val binding: B
-        get() {
-            return DataBindingUtil.bind(requireView())!!
-        }
+        get() = _binding!!
 
     protected abstract fun initView()
     protected abstract fun initData()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        DataBindingUtil.bind<B>(view)
+        Log.d("Zyp", "Base bind")
+        _binding = DataBindingUtil.bind<B>(view)
 
         try {
             initView()
@@ -34,5 +34,11 @@ abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
         } catch (e: Exception) {
             Log.e("Engine", "Initializing failure", e)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // TODO: 解决ViewPager2内部问题后启用下面这行代码，否则会导致配合navigation使用时造成内存泄露
+//        _binding = null
     }
 }

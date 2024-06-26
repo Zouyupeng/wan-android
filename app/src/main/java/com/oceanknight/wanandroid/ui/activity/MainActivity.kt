@@ -1,6 +1,5 @@
 package com.oceanknight.wanandroid.ui.activity
 
-import android.util.Log
 import androidx.navigation.findNavController
 import com.google.android.material.tabs.TabLayout
 import com.oceanknight.wanandroid.R
@@ -35,7 +34,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         binding.bottomNavigationBar.addOnTabSelectedListener(object : OnTabSelectedListenerInstance() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                Log.d("Zyp", "id : ${tab?.id}")
                 findNavController(R.id.nav_host_fragment).navigate(tab!!.id)
             } })
     }

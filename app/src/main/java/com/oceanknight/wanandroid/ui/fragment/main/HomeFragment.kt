@@ -1,6 +1,12 @@
 package com.oceanknight.wanandroid.ui.fragment.main
 
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import com.drake.net.Get
 import com.drake.net.utils.scopeNetLife
 import com.google.android.material.tabs.TabLayoutMediator
@@ -15,6 +21,7 @@ import com.oceanknight.wanandroid.ui.fragment.home.ProjectFragment
 import com.oceanknight.wanandroid.ui.fragment.home.SquareFragment
 import com.oceanknight.wanandroid.ui.fragment.home.TopFragment
 import com.oceanknight.wanandroid.ui.fragment.home.WxArticleFragment
+import com.oceanknight.wanandroid.ui.viewmodel.HomeViewModel
 import com.oceanknight.wanandroid.utils.ext.FragmentAdapter
 import com.youth.banner.indicator.RoundLinesIndicator
 
@@ -25,7 +32,41 @@ import com.youth.banner.indicator.RoundLinesIndicator
  * describe:
  */
 class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+
+    private var cachedView: View? = null
+
+    private val homeViewModel: HomeViewModel by activityViewModels()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.d("Zyp", "onCreateView")
+        if (homeViewModel.cachedHomeFragmentView == null) {
+            Log.d("Zyp", "cachedView null")
+            homeViewModel.firstInitFlag = true
+            homeViewModel.cachedHomeFragmentView = inflater.inflate(R.layout.fragment_home, container, false)
+        } else {
+            homeViewModel.firstInitFlag = false
+        }
+        return homeViewModel.cachedHomeFragmentView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("Zyp", "onViewCreated")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
     override fun initView() {
+        if (!homeViewModel.firstInitFlag) return
+        Log.d("Zyp", "initView")
+
+
         // banner
         binding.homeBanner.setAdapter(HomeBannerAdapter())
             .setIndicator(RoundLinesIndicator(requireContext()))
@@ -51,6 +92,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     override fun initData() {
+        if (!homeViewModel.firstInitFlag) return
         scopeNetLife {
             val bannerAsync = Get<List<HomeBanner>>(Api.BANNER)
 

@@ -1,5 +1,10 @@
 package com.oceanknight.wanandroid.ui.fragment.home
 
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.drake.brv.utils.setup
 import com.drake.net.Get
 import com.drake.net.utils.scopeNetLife
@@ -16,7 +21,30 @@ import com.oceanknight.wanandroid.net.model.Articles
  * describe:
  */
 class TopFragment: BaseFragment<FragmentTopBinding>(R.layout.fragment_top) {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.i("Zyp", "onCreateView")
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.i("Zyp", "onViewCreated")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i("Zyp", "onDestroyView")
+    }
+
+
     override fun initView() {
+
+        Log.i("Zyp", "top initView")
         binding.topArticleRv.setup {
             addType<Articles.Article>(R.layout.item_article)
         }
