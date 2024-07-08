@@ -77,6 +77,7 @@ data class Articles(
         @SerialName("title")
         var title: String = "",
 
+        /** 广场,查询作者/分享者历史文章使用此id */
         @SerialName("userId")
         var userId: Int = 0,
 

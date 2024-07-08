@@ -19,6 +19,7 @@ import com.oceanknight.wanandroid.net.model.Articles
  * author: Oceanknight
  * date: 2024/05/31
  * describe:
+ * 首页
  */
 class TopFragment: BaseFragment<FragmentTopBinding>(R.layout.fragment_top) {
 
@@ -49,15 +50,15 @@ class TopFragment: BaseFragment<FragmentTopBinding>(R.layout.fragment_top) {
             addType<Articles.Article>(R.layout.item_article)
         }
         binding.topArticlePage.onRefresh {
-            getTopData()
+            fetchTopData()
         }
     }
 
     override fun initData() {
-        getTopData()
+        fetchTopData()
     }
 
-    private fun getTopData() {
+    private fun fetchTopData() {
         scopeNetLife {
             val homeArticleAsync = Get<Articles>(Api.HOME_ARTICLE + (binding.topArticlePage.index - 1))
             val topArticleAsync = if (binding.topArticlePage.index == 1) Get<List<Articles.Article>>(Api.TOP_ARTICLE)
