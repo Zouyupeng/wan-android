@@ -81,6 +81,11 @@ data class Articles(
         var userId: Int = 0,
 
     ) {
+
+        val simplifyTime
+            get() = if (niceDate.length >= 10) niceDate.substring(0, 10)
+                    else niceDate
+
         @Serializable
         data class Tag(
             @SerialName("name")

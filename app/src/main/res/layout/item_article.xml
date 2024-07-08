@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp_10"
-                android:text="@{m.niceDate}"
+                android:text="@{m.simplifyTime}"
                 app:layout_constraintTop_toTopOf="@id/source_img"
                 app:layout_constraintBottom_toBottomOf="@id/source_img"
                 app:layout_constraintStart_toEndOf="@id/author_tv"
