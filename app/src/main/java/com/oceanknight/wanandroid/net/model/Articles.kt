@@ -21,7 +21,7 @@ data class Articles(
     @SerialName("datas")
     var articleList: List<Article> = listOf(),
 
-    /** 是否还有后续 */
+    /** 是否还有后续 true-没有 */
     @SerialName("over")
     var over: Boolean = false,
 
@@ -70,7 +70,7 @@ data class Articles(
         @SerialName("projectLink")
         var projectLink: String = "",
 
-        /** 似乎有公众号,本站发布,问答 */
+        /** 标签 有公众号,本站发布,问答,项目 url代表要访问的接口 */
         @SerialName("tags")
         var tags: List<Tag> = listOf(),
 
@@ -80,7 +80,6 @@ data class Articles(
         /** 广场,查询作者/分享者历史文章使用此id */
         @SerialName("userId")
         var userId: Int = 0,
-
     ) {
 
         val simplifyTime

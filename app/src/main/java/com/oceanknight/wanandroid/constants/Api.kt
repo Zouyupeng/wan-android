@@ -13,4 +13,6 @@ object Api {
     const val TOP_ARTICLE = "/article/top"
     // 广场列表数据 10.1
     const val USER_ARTICLE = "/user_article/list/"
+    // 项目列表数据 16.1
+    const val PROJECT_LIST = "/article/listproject/"
 }
